@@ -1,0 +1,38 @@
+# Python dependencies for commission payout pipeline
+
+# AWS SDK
+boto3>=1.26.0
+botocore>=1.29.0
+
+# AWS Glue
+aws-glue-libs>=1.0.0
+awswrangler>=2.20.0
+
+# Data processing
+pyspark>=3.3.0
+pandas>=1.5.0
+numpy>=1.24.0
+
+# Encryption
+pgpy>=0.6.0
+cryptography>=40.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+moto>=4.1.0  # AWS mocking for tests
+
+# Development
+black>=23.0.0
+flake8>=6.0.0
+isort>=5.12.0
+mypy>=1.0.0
+
+# Logging & Observability
+python-json-logger>=2.0.0
+aws-lambda-powertools>=2.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+PyYAML>=6.0

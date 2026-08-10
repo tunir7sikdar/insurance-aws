@@ -1,0 +1,93 @@
+aws:
+  region: us-east-1
+
+s3:
+  bucket: commission-payout-data
+
+glue:
+  catalog: awsdatacatalog
+  database_prefix: commission_payout
+
+dynamodb:
+  audit_table: file_ingestion_audit
+
+secrets:
+  pgp_private_key: pgp-private-key
+  pgp_passphrase: pgp-passphrase
+
+expected_files:
+  - transactions
+  - policy
+  - coverage
+  - feature
+  - exchange
+  - rider
+
+primary_keys:
+  transactions:
+    - transaction_id
+    - cycle_date
+  policy:
+    - policy_id
+  coverage:
+    - coverage_id
+    - policy_id
+  feature:
+    - feature_id
+  exchange:
+    - exchange_id
+  rider:
+    - rider_id
+    - policy_id
+
+glue_jobs:
+  decrypt_and_convert:
+    name_suffix: decrypt-and-convert-csv
+    timeout: 2880
+    max_retries: 1
+    worker_type: G.2X
+    num_workers: 5
+    glue_version: "4.0"
+  dq_check:
+    name_suffix: dq-check
+    timeout: 1440
+    max_retries: 0
+    worker_type: G.1X
+    num_workers: 5
+    glue_version: "4.0"
+  transform_and_merge:
+    name_suffix: transform-and-merge
+    timeout: 2880
+    max_retries: 1
+    worker_type: G.2X
+    num_workers: 10
+    glue_version: "4.0"
+
+dq_rules:
+  transactions:
+    not_null: [transaction_id, cycle_date, transaction_amount, transaction_status]
+    no_duplicates: [transaction_id, cycle_date]
+    positive_values: [transaction_amount]
+    allowed_values:
+      transaction_status: [SUCCESS, FAILED, PENDING]
+    min_row_count: 1
+  policy:
+    not_null: [policy_id]
+    no_duplicates: [policy_id]
+    min_row_count: 1
+  coverage:
+    not_null: [coverage_id, policy_id]
+    no_duplicates: [coverage_id, policy_id]
+    min_row_count: 1
+  feature:
+    not_null: [feature_id]
+    no_duplicates: [feature_id]
+    min_row_count: 1
+  exchange:
+    not_null: [exchange_id]
+    no_duplicates: [exchange_id]
+    min_row_count: 1
+  rider:
+    not_null: [rider_id, policy_id]
+    no_duplicates: [rider_id, policy_id]
+    min_row_count: 1

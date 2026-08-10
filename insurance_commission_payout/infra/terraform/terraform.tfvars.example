@@ -1,0 +1,23 @@
+# Example Terraform Variables File
+# Copy this to terraform.tfvars and fill in your actual values
+
+aws_region              = "us-east-1"
+environment             = "dev"
+s3_bucket_name          = "commission-payout-data-dev"
+kms_key_id              = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
+dynamodb_table_name     = "file_ingestion_audit"
+glue_database_name      = "commission_payout"
+glue_job_max_workers    = 10
+glue_job_timeout        = 2880
+glue_job_script_location = "s3://commission-payout-scripts-dev/jobs/"
+lambda_timeout          = 60
+lambda_memory           = 256
+log_retention_days      = 30
+
+tags = {
+  Project         = "CommissionPayout"
+  Environment     = "dev"
+  Owner           = "DataEngineering"
+  CostCenter      = "1234"
+  CreatedBy       = "Terraform"
+}
