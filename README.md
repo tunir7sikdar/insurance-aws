@@ -466,9 +466,6 @@ See [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for more details.
 5. Run linting: `make lint`
 6. Submit pull request
 
-## 📄 License
-
-MIT
 
 ## 📧 Support
 
