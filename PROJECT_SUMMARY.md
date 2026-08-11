@@ -1,4 +1,4 @@
-# Project Summary
+# Project Summary (High Level)
 
 ## Commission Payout Pipeline - Complete Project Structure
 
