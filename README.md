@@ -48,7 +48,7 @@ S3 (Iceberg Tables)
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/company/commission-payout-pipeline.git
+   git clone https://github.com/tunir7sikdar/insurance-aws/tree/main/insurance_commission_payout
    cd commission-payout-pipeline
    ```
 
