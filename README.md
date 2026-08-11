@@ -472,7 +472,7 @@ See [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for more details.
 
 ## 📧 Support
 
-For questions or issues, contact: dataeng@company.com
+For questions or issues, contact: sikdartunir@gmail.com
 
 ## 🔄 Change Log
 
