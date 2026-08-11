@@ -48,8 +48,8 @@ S3 (Iceberg Tables)
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/company/commission-payout-pipeline.git
-   cd commission-payout-pipeline
+   git clone https://github.com/tunir7sikdar/insurance-aws.git
+   cd insurance-aws
    ```
 
 2. **Create virtual environment**
@@ -96,7 +96,7 @@ make lint
 ## 📁 Project Structure
 
 ```
-commission-payout-pipeline/
+insurance-aws/
 ├── lambda/
 │   └── file_ingestion_audit/
 │       ├── lambda_function.py       # S3 event handler
@@ -255,7 +255,7 @@ glue_client.start_job_run(
 4. **Business Calculations**: Commission amount, aggregations
 5. **SCD Type 1 Merge**: Update existing records, insert new ones
 
-### 4. Shared Utilities
+### 5. Shared Utilities
 
 #### PGP Decryption (`glue/shared/utils/pgp_decryption.py`)
 ```python
@@ -468,15 +468,15 @@ See [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for more details.
 
 ## 📄 License
 
-[Your License Here]
+MIT
 
 ## 📧 Support
 
-For questions or issues, contact: dataeng@company.com
+For questions or issues, open a GitHub issue or reach out at sikdartunir@gmail.com
 
 ## 🔄 Change Log
 
-### v1.0.0 (2024-01-15)
+### v1.0.0 (2026-08-10)
 - Initial release
 - Lambda file ingestion audit
 - Glue jobs for decrypt and transform
